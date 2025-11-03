@@ -1,30 +1,24 @@
-
-let value = 5;
-const row = document.getElementById('row');
-const plusBtn = document.getElementById('plusBtn');
-const minusBtn = document.getElementById('minusBtn');
-
-
-if (plusBtn) {
-    plusBtn.addEventListener('click', () => {
-        value += 1;
-        render();
-    });
-}
+const countText = document.getElementById("count");
+const plusBtn = document.getElementById("plusBtn");
+const minusBtn = document.getElementById("minusBtn");
+const countCon = document.querySelector("#count");
+let count = 0;
 
 
-if (minusBtn) {
-    minusBtn.addEventListener('click', () => {
-        value -= 1;
-        render();
-    });
-}
+plusBtn.addEventListener("click", () => {
+    count += 1;
+    countText.textContent = count;
+})
 
-function render() {
-    if (display) {
-        display.textContent = value;
+minusBtn.addEventListener("click", () => {
+    if (count > 0) {
+        count -= 1 
+        countText.textContent = count;
     }
-}
+})
 
 
-render();
+countCon.addEventListener("click", () => {
+    count = 0;
+    countText.textContent = 0;
+})
